@@ -1,6 +1,4 @@
-include main.mk
-
-.PHONY: test
+.PHONY: coverage
 
 COVERAGE_FOLDER=$(PROXY_FOLDER)/coverage
 COVERAGE_FILES:=$(shell find $(COVERAGE_FOLDER) -type f -name '*' 2>/dev/null)

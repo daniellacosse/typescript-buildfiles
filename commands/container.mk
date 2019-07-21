@@ -1,5 +1,3 @@
-include main.mk
-
 .PHONY: container image docker-online
 
 # -- container --

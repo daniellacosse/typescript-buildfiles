@@ -1,5 +1,3 @@
-include main.mk
-
 .PHONY: test
 
 TEST_RESULTS=$(PROXY_FOLDER)/.jest-test-results.json

@@ -1,5 +1,3 @@
-include main.mk
-
 .PHONY: lint
 
 LINTER_REGEX=\.ts$$|\.vue$$

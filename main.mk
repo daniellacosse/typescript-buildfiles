@@ -7,6 +7,12 @@ SHELL:=/bin/bash
 IF_ENV=$(if ifeq ($(NODE_ENV),$(1)),$(2))
 IF_PRODUCTION=$(call IF_ENV,production,$(1))
 
+# -- alias for root make command --
+
+.PHONY: main
+
+main: default
+
 # -- proxy targets --
 
 PROXY_FOLDER=.make

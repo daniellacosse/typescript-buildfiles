@@ -1,5 +1,3 @@
-include main.mk
-
 .PHONY: ci
 
 CI_CONFIG=.circleci/config.yml
