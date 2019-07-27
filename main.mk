@@ -1,4 +1,4 @@
--include ../.env
+-include .env
 
 .DELETE_ON_ERROR:
 
