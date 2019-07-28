@@ -36,7 +36,7 @@ $(IMAGE_PROXY_TARGET): $(PROJECT_DEPENDENCY_PROXY_TARGETS) $(SOURCE_FILES) Docke
 # -- docker online --
 
 docker-online: $(PROJECT_DEPENDENCY_PROXY_TARGETS)
-	$(call IF_PRODUCTION,exit 0) ;\
+	$(call IF_PRODUCTION,exit 0 ;\)
 	if ! docker stats --no-stream ;\
 		then echo "Starting docker..." ;\
 		\

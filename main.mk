@@ -4,7 +4,7 @@
 
 SHELL:=/bin/bash
 
-IF_ENV=$(if ifeq ($(NODE_ENV),$(1)),$(2))
+IF_ENV=$(if $(filter $(NODE_ENV),$(1)),$(2))
 IF_PRODUCTION=$(call IF_ENV,production,$(1))
 
 # -- alias for root make command --
@@ -26,8 +26,7 @@ PROJECT_DEPENDENCY_PROXY_TARGETS = \
 	$(PROXY_FOLDER)/vscode-extensions.json
 
 $(PROXY_FOLDER)/Brewfile: Brewfile
-	$(call IF_PRODUCTION,exit 0) ;\
-	\
+	$(call IF_PRODUCTION,exit 0 ;\)
 	brew bundle --force \
 		> $(PROXY_FOLDER)/Brewfile
 
@@ -40,8 +39,7 @@ $(PROXY_FOLDER)/yarn.lock: yarn.lock
 yarn.lock: # watch this file
 
 $(PROXY_FOLDER)/vscode-extensions.json: .vscode/extensions.json
-	$(call IF_PRODUCTION,exit 0) ;\
-	\
+	$(call IF_PRODUCTION,exit 0 ;\)
 	cat .vscode/extensions.json |\
 		jq -r '.recommendations | .[]' |\
 		xargs -L 1 code --install-extension \

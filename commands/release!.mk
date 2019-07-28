@@ -42,10 +42,10 @@ release!:
 # 		> $(RELEASE_PROXY_TARGET)
 
 $(PACKAGE_BUILD): $(PROJECT_DEPENDENCY_PROXY_TARGETS) $(PACKAGE_FOLDER) $(SOURCE_FILES) $(CONFIG_FILES) 
-		yarn parcel build $(PACKAGE_ENTRY_POINT) \
-			--no-source-maps \
-			--target node \
-			--out-dir $(BUILD_FOLDER)
+	yarn parcel build $(PACKAGE_ENTRY_POINT) \
+		--no-source-maps \
+		--target node \
+		--out-dir $(BUILD_FOLDER)
 
 $(PACKAGE_FOLDER):
 	mkdir -p $(BUILD_FOLDER) ;\

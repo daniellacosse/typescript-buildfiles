@@ -9,7 +9,7 @@ lint: $(PROXY_FOLDER)
 $(LINT_PROXY_TARGET): $(PROJECT_DEPENDENCY_PROXY_TARGETS) $(SOURCE_FILES)
 	current_branch=$$(git rev-parse --abbrev-ref HEAD) ;\
 	diff_target="HEAD^ --staged" ;\
-	$(call IF_PRODUCTION,diff_target=master...$$current_branch) ;\
+	$(call IF_PRODUCTION,diff_target=master...$$current_branch ;\)
 	\
 	changes=$$( \
 		git diff \
