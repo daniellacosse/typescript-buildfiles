@@ -10,7 +10,7 @@ include main.mk commands/*.mk
 
 ## `/commands`
 
-these are various make commands that intend to universally helpful across my various typescript projects
+these are various make commands that intend to be universally helpful across my various typescript projects
 
 ### `default` : run the default action (defined by the host repository)
 
