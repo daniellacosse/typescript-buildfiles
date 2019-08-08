@@ -18,9 +18,9 @@ main: default
 PROXY_FOLDER=.make
 
 $(PROXY_FOLDER):
-	# this is a bit dirty, but it ensure we always have the latest buildfiles
+	# this is a bit dirty, but it ensures we always have the latest buildfiles
 	mkdir -p $(PROXY_FOLDER) ;\
-	git submodule update
+	git submodule update --recursive --remote
 
 PROJECT_DEPENDENCY_PROXY_TARGETS = \
 	$(PROXY_FOLDER)/Brewfile \
