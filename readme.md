@@ -79,18 +79,18 @@ these are the default, context-agnostic "best practice" build configurations. th
 
 > NOTE: the chosen file formats (`.js`, `.yml`) all support developer comments.
 
-### `.babelrc.js` - the `babel` config
+### [`.babelrc.js`](https://github.com/daniellacosse/typescript-buildfiles/blob/master/defaults/.babelrc.js) - the `babel` config
 
 allows us to specify additional build options on top of parceljs' defaults
 
-### `.browserslistrc` - the `browserslist` config
+### [`.browserslistrc`](https://github.com/daniellacosse/typescript-buildfiles/blob/master/defaults/.browserslistrc) - the `browserslist` config
 
 set browser compilation targets for the project. automatically picked up by parceljs and others. should ensure minimal transformation is done to support the browsers we want to support
 
-### `.eslintrc.yml` - the `eslint` config
+### [`.eslintrc.yml`](https://github.com/daniellacosse/typescript-buildfiles/blob/master/defaults/.eslintrc.yml) - the `eslint` config
 
 determines what the linter decides is a pass/fail with respect to code style/requirements
 
-### `.postcssrc.js` - the `postcss` config
+### [`.postcssrc.js`](https://github.com/daniellacosse/typescript-buildfiles/blob/master/defaults/.postcssrc.js) - the `postcss` config
 
 TODO
