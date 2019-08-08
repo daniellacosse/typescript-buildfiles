@@ -81,11 +81,11 @@ these are the default, context-agnostic "best practice" build configurations. th
 
 ### `.babelrc.js` - the `babel` config
 
-additional build options on top of parceljs' defaults
+allows us to specify additional build options on top of parceljs' defaults
 
 ### `.browserslistrc` - the `browserslist` config
 
-set browser compilation targets for the project. should ensure minimal transformation is done to support the browsers we want to support
+set browser compilation targets for the project. automatically picked up by parceljs and others. should ensure minimal transformation is done to support the browsers we want to support
 
 ### `.eslintrc.yml` - the `eslint` config
 
