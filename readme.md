@@ -77,7 +77,7 @@ make reset!
 
 these are the default, context-agnostic "best practice" build configurations. they're meant to be symlinked into place when no additional options are necessary, or extended from when a project-specific dependency is called for.
 
-> NOTE: the chose file formats (`.js`, `.yml`) all support developer comments.
+> NOTE: the chosen file formats (`.js`, `.yml`) all support developer comments.
 
 ### `.babelrc.js` - the `babel` config
 
