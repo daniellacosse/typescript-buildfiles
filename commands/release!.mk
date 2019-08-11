@@ -45,7 +45,7 @@ $(PACKAGE_BUILD): $(PROJECT_DEPENDENCY_PROXY_TARGETS) $(PACKAGE_FOLDER) $(SOURCE
 	yarn parcel build $(PACKAGE_ENTRY_POINT) \
 		--no-source-maps \
 		--target node \
-		--out-dir $(BUILD_FOLDER)
+		--out-dir $(PACKAGE_FOLDER)
 
 $(PACKAGE_FOLDER):
 	mkdir -p $(BUILD_FOLDER) ;\
