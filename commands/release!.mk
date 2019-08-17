@@ -16,7 +16,7 @@ PACKAGE_ENTRY_POINT=$(SOURCE_FOLDER)/$(PACKAGE_ENTRY_FILENAME).ts
 PACKAGE_BUILD=$(PACKAGE_FOLDER)/$(PACKAGE_ENTRY_FILENAME).js
 
 # DOCUMENTATION_FOLDER=documentation
-# DOCUMENTATION:=$(shell find $(DOCUMENTATION_FOLDER) -type f -name '*')
+# DOCUMENTATION_FILES:=$(shell find $(DOCUMENTATION_FOLDER) -type f -name '*')
 
 release:
 	@echo "Are you sure? - please run 'release!' to confirm."
@@ -40,6 +40,8 @@ release!:
 # 	new_version=$$(cat package.json | jq -r '.version') ;\
 # 	yarn publish --new-version $$new_version --access public \
 # 		> $(RELEASE_PROXY_TARGET)
+
+# 	docker push ... name:$$new_version
 
 $(PACKAGE_BUILD): $(PROJECT_DEPENDENCY_PROXY_TARGETS) $(PACKAGE_FOLDER) $(SOURCE_FILES) $(CONFIG_FILES) 
 	yarn parcel build $(PACKAGE_ENTRY_POINT) \
