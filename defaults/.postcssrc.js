@@ -3,5 +3,6 @@
  * I don't know what my default postcss config should be yet.
  */
 
- module.exports = {};
- 
+module.exports = {
+  plugins: [require("autoprefixer")]
+};
