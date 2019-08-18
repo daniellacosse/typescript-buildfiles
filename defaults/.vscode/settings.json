@@ -1,6 +1,7 @@
 {
-  "coverage-gutters.showGutterCoverage": true,
+  "auto-close-tag.SublimeText3Mode": true,
   "coverage-gutters.coverageReportFileName": ".make/coverage/**/index.html",
+  "coverage-gutters.showGutterCoverage": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.tabCompletion": "onlySnippets",
@@ -9,22 +10,20 @@
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
-  "eslint.validate": ["typescript"],
+  "eslint.validate": ["typescript", "vue"],
   "files.autoSave": "onFocusChange",
   "files.exclude": {
     "**/.DS_Store": true,
-    "**/.cache": true,
     "**/.make": true,
-    "**/node_modules": true,
+    "**/node_modules": true
   },
   "files.insertFinalNewline": true,
   "prettier.eslintIntegration": true,
   "search.exclude": {
     "**/.DS_Store": true,
-    "**/.cache": true,
     "**/.make": true,
     "**/documentation": true,
     "**/node_modules": true,
-    "**/yarn.lock": true,
+    "**/yarn.lock": true
   }
 }
