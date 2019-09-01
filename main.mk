@@ -5,6 +5,7 @@
 SHELL:=/bin/bash
 
 IF_ENV=$(if $(filter $(NODE_ENV),$(1)),$(2))
+IF_LOCAL=$(call IF_ENV,,$(1))
 IF_PRODUCTION=$(call IF_ENV,production,$(1))
 
 # -- alias for root make command --
@@ -18,17 +19,14 @@ main: default
 PROXY_FOLDER=.make
 
 $(PROXY_FOLDER):
-	# this is a bit dirty, but it ensures we always have the latest buildfiles
-	mkdir -p $(PROXY_FOLDER) ;\
-	git submodule update --recursive --remote
+	mkdir -p $(PROXY_FOLDER)
 
-PROJECT_DEPENDENCY_PROXY_TARGETS = \
-	$(PROXY_FOLDER)/Brewfile \
-	$(PROXY_FOLDER)/yarn.lock \
-	$(PROXY_FOLDER)/vscode-extensions.json
+PROJECT_DEPENDENCY_PROXY_TARGETS= \
+	$(call IF_LOCAL,$(PROXY_FOLDER)/Brewfile) \
+	$(call IF_LOCAL,$(PROXY_FOLDER)/yarn.lock) \
+	$(call IF_LOCAL,$(PROXY_FOLDER)/vscode-extensions.json)
 
 $(PROXY_FOLDER)/Brewfile: Brewfile
-	$(call IF_PRODUCTION,exit 0 ;\)
 	brew bundle --force \
 		> $(PROXY_FOLDER)/Brewfile
 
@@ -41,7 +39,6 @@ $(PROXY_FOLDER)/yarn.lock: yarn.lock
 yarn.lock: # watch this file
 
 $(PROXY_FOLDER)/vscode-extensions.json: .vscode/extensions.json
-	$(call IF_PRODUCTION,exit 0 ;\)
 	cat .vscode/extensions.json |\
 		jq -r '.recommendations | .[]' |\
 		xargs -L 1 code --install-extension \
