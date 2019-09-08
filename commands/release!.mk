@@ -13,6 +13,7 @@ CONFIG_FILES:=tsconfig.json $(shell find $(CONFIG_FOLDER) -type f -name '*')
 PACKAGE_FOLDER=build
 PACKAGE_ENTRY_FILENAME=index
 PACKAGE_ENTRY_POINT=$(SOURCE_FOLDER)/$(PACKAGE_ENTRY_FILENAME).ts
+PACKAGE_TARGET=node
 PACKAGE_BUILD=$(PACKAGE_FOLDER)/$(PACKAGE_ENTRY_FILENAME).js
 
 # DOCUMENTATION_FOLDER=documentation
@@ -46,12 +47,12 @@ release!:
 $(PACKAGE_BUILD): $(PROJECT_DEPENDENCY_PROXY_TARGETS) $(PACKAGE_FOLDER) $(SOURCE_FILES) $(CONFIG_FILES) 
 	yarn parcel build $(PACKAGE_ENTRY_POINT) \
 		--no-source-maps \
-		--target node \
-		--out-dir $(PACKAGE_FOLDER)
+		--target $(PACKAGE_TARGET) \
+		--out-dir $(PACKAGE_FOLDER) \
+		--cache-dir $(PROXY_FOLDER)/.cache
 
 $(PACKAGE_FOLDER):
-	mkdir -p $(BUILD_FOLDER) ;\
-	make $(PACKAGE_BUILD)
+	mkdir -p $(PACKAGE_FOLDER)
 
 # $(DOCUMENTATION): $(SOURCE_FILES)
 # 	yarn jsdoc2md --files $(SOURCE_FILES) \
