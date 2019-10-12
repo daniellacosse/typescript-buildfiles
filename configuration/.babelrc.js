@@ -1,7 +1,5 @@
 const presets = [
-  // `@babel/preset-env` detects the local .env and .browserslistrc and sets
-  // its compilation targets accordingly
-  ["@babel/preset-env", { targets: { esmodules: true } }],
+  ["@babel/preset-env", { targets: { esmodules: true, browser: "> 2% and last 2 versions" } }],
   "@babel/preset-typescript"
 ];
 
