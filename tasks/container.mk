@@ -1,3 +1,5 @@
+-include main.mk
+
 .PHONY: container image docker-online
 
 # -- container --
@@ -20,7 +22,7 @@ container: image
 		-p $(CONTAINER_PORT):$(CONTAINER_PORT)/tcp \
 		$(IMAGE_NAME):latest ;\
 	\
-	open $(STORY_LOCALHOST)
+	open $(CONTAINER_LOCALHOST)
 
 # -- image --
 
