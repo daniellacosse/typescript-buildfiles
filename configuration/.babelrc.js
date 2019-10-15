@@ -1,20 +1,27 @@
 const presets = [
-  ["@babel/preset-env", { targets: { esmodules: true, browser: "> 2% and last 2 versions" } }],
+  [
+    "@babel/preset-env",
+    {
+      targets: {
+        esmodules: true,
+        browsers: "> 2% and last 2 versions, not dead"
+      },
+      useBuiltIns: "usage",
+      corejs: 3
+    }
+  ],
   "@babel/preset-typescript"
 ];
 
 const plugins = [
   [
-    // `module-resolver` allows us to reference files from the root of the project
     "module-resolver",
     {
       extensions: [".ts", ".tsx", ".vue"],
-      root: "."
+      root: ".",
+      alias: {}
     }
-  ],
-
-  // the `convert-to-json` preset converts all found yaml to json
-  "convert-to-json"
+  ]
 ];
 
 module.exports = { presets, plugins };

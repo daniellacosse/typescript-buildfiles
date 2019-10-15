@@ -1,29 +1,37 @@
 {
   "auto-close-tag.SublimeText3Mode": true,
   "coverage-gutters.coverageReportFileName": ".make/coverage/**/index.html",
-  "coverage-gutters.showGutterCoverage": true,
+  "coverage-gutters.showGutterCoverage": false,
+  "coverage-gutters.showLineCoverage": true,
+  "coverage-gutters.highlightlight": "rgba(166, 220, 142, 0.10)",
+  "coverage-gutters.highlightdark": "rgba(166, 220, 142, 0.10)",
+  "coverage-gutters.partialHighlightDark": "transparent",
+  "coverage-gutters.partialHighlightLight": "transparent",
+  "coverage-gutters.noHighlightDark": "rgba(121, 31, 10, 0.33)",
+  "coverage-gutters.noHighlightLight": "rgba(220, 143, 143, 0.33)",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.tabCompletion": "onlySnippets",
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 95,
+  "editor.tabCompletion": "onlySnippets",
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
   "eslint.validate": ["typescript", "vue"],
-  "files.autoSave": "onFocusChange",
   "files.exclude": {
     "**/.DS_Store": true,
-    "**/.make": true,
-    "**/node_modules": true
+    "**/yarn-error.log": true
   },
   "files.insertFinalNewline": true,
-  "prettier.eslintIntegration": true,
+  "jest.pathToConfig": ".jestrc.js",
+  "jest.restartJestOnSnapshotUpdate": true,
+  "jest.enableSnapshotUpdateMessages": true,
   "search.exclude": {
     "**/.DS_Store": true,
     "**/.make": true,
-    "**/documentation": true,
+    "**/artifacts": true,
     "**/node_modules": true,
+    "**/yarn-error.log": true,
     "**/yarn.lock": true
   }
 }
