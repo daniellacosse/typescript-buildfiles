@@ -1,0 +1,76 @@
+version: 2.1
+
+executors:
+  node:
+    docker:
+      - image: circleci/node:latest
+
+commands:
+  set_git_user:
+    description: "setup circle CI as a git user"
+    steps:
+      - add_ssh_keys
+
+      - run: |
+          git config credential.helper 'cache --timeout=120'
+          git config user.name 'CircleCI'
+          git config user.email '<>'
+
+  set_production_environment:
+    description: "sets up our needed environment variables"
+    steps:
+      - run: |
+          echo ENV=production > .env
+
+  get_dependencies:
+    description: "fetch all necessary dependencies"
+    steps:
+      - checkout
+      - set_production_environment
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      - run: |
+          git clone git@github.com:daniellacosse/typescript-buildfiles.git .buildfiles
+          make .make/yarn.lock
+
+      - save_cache:
+          paths:
+            - .buildfiles
+            - .make
+            - node_modules
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+jobs:
+  eslint:
+    executor: node
+
+    steps:
+      - get_dependencies
+
+      - run: make eslint
+
+  jest:
+    executor: node
+
+    steps:
+      - get_dependencies
+
+      - run: make jest
+
+workflows:
+  build:
+    jobs:
+      - eslint:
+          filters:
+            branches:
+              ignore:
+                - master
+      - jest:
+          filters:
+            branches:
+              ignore:
+                - master

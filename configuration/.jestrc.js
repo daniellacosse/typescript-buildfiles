@@ -1,8 +1,5 @@
 module.exports = {
-  /**
-   * these are module mappers internal to jest, so that `--watch` and `--findRelatedTests` look
-   * in the same place babel does.
-   */
+  // TODO - 
   // moduleNameMapper: {
   //   "^components[/](.+)[.]base": "<rootDir>/components/$1/$1.base.js",
   //   "^components[/](.+)[.]story": "<rootDir>/components/$1/$1.story.jsx",
@@ -12,10 +9,9 @@ module.exports = {
   notifyMode: "failure-change",
   prettierPath: "<rootDir>/node_modules/prettier/",
   roots: ["<rootDir>/apps/", "<rootDir>/library/"],
-  // snapshotSerializers: ["jest-emotion"],
   watchPathIgnorePatterns: ["<rootDir>/node_modules/"],
   collectCoverage: true,
-  // collectCoverageFrom: ["<rootDir>/components/**/*.component.jsx"],
+  collectCoverageFrom: ["<rootDir>/apps/**/*.{ts,vue}", "<rootDir>/library/**/*.{ts,vue}"],
   coverageDirectory: "<rootDir>/.make/coverage",
   coverageThreshold: {
     global: {

@@ -19,7 +19,9 @@ const plugins = [
     {
       extensions: [".ts", ".tsx", ".vue"],
       root: ".",
-      alias: {}
+      alias: {
+        // TODO
+      }
     }
   ]
 ];
