@@ -1,8 +1,8 @@
-/**
- * TODO: This is a placeholder.
- * I don't know what my default postcss config should be yet.
- */
+const plugins = [
+  require("autoprefixer"),
+  require("stylelint"),
+  require("postcss-import"),
+  require("postcss-preset-env")
+];
 
-module.exports = {
-  plugins: [require("autoprefixer")]
-};
+module.exports = { plugins };

@@ -1,6 +1,7 @@
 {
   "auto-close-tag.SublimeText3Mode": true,
-  "coverage-gutters.coverageReportFileName": ".make/coverage/**/index.html",
+  "coverage-gutters.coverageReportFileName": "./.make/coverage/**/index.html",
+  "versionlens.npm.dependencyProperties": ["dependencies"],
   "coverage-gutters.showGutterCoverage": false,
   "coverage-gutters.showLineCoverage": true,
   "coverage-gutters.highlightlight": "rgba(166, 220, 142, 0.10)",
@@ -9,6 +10,11 @@
   "coverage-gutters.partialHighlightLight": "transparent",
   "coverage-gutters.noHighlightDark": "rgba(121, 31, 10, 0.33)",
   "coverage-gutters.noHighlightLight": "rgba(220, 143, 143, 0.33)",
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "vetur.format.enable": true,
+  "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
@@ -17,10 +23,21 @@
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
-  "eslint.validate": ["typescript", "vue"],
+  "eslint.validate": [
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "eslint.options": { "extensions": [".ts", ".vue"] },
   "files.exclude": {
     "**/.DS_Store": true,
-    "**/yarn-error.log": true
+    "**/yarn-error.log": true,
+    "**/node_modules": true
   },
   "files.insertFinalNewline": true,
   "jest.pathToConfig": ".jestrc.js",
@@ -33,5 +50,6 @@
     "**/node_modules": true,
     "**/yarn-error.log": true,
     "**/yarn.lock": true
-  }
+  },
+  "stylelint.autoFixOnSave": true
 }

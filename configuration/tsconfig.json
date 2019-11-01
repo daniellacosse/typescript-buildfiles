@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "alwaysStrict": true,
+    "baseUrl": ".",
     "experimentalDecorators": true,
-    "lib": ["esnext", "dom", "scripthost"],
-    "module": "es2015",
     "moduleResolution": "node",
-    "target": "es6",
-    // "outDir": ".make/dist",
+    "outDir": ".make",
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "types": ["node", "jest"]
+    "strict": true,
+    "target": "es6"
   },
-  // we exclude these files to save typescript from having to go through them
+  "include": ["apps/**/*", "library/**/*"],
   "exclude": [
-    ".circleci",
     ".make",
     ".github",
     ".vscode",
-    "artifacts",
-    "node_modules"
+    ".storybook",
+    "node_modules",
+    "**/*.test.ts"
   ]
 }
