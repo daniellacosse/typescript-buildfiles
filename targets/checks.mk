@@ -1,5 +1,7 @@
 -include main.mk
 
+# checks/%:
+
 .PHONY: jest
 
 COVERAGE_FOLDER=$(PROXY_FOLDER)/coverage

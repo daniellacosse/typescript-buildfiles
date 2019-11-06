@@ -1,5 +1,8 @@
 -include main.mk
 
+# apps/%:
+
+
 .PHONY: container image docker-online
 
 # -- container --

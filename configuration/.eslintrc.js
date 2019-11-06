@@ -1,14 +1,13 @@
 const eslintRules = {
   camelcase: "error",
-  curly: "error", // leave room for later logic
-  "dot-notation": ["error", { allowPattern: "^[a-z]+([-_][a-z]+)+$" }], // `css-case` and `python_case` allowed
-  "eol-last": "error", // end files w/ newline - this is git-friendly
-  eqeqeq: "error", // please check for type
+  curly: "error",
+  "dot-notation": ["error", { allowPattern: "^[a-z]+(-[a-z]+)+$" }],
+  "eol-last": "error",
+  eqeqeq: "error",
 
   "no-await-in-loop": "error", // use Promise.all instead so async calls are fired at once
-  "no-console": "error", // we shouldn't be logging from stateless components
   "no-eval": "error", // this is an attack vector
-  "no-extra-parens": ["error", "all", { ignoreJSX: "all" }], // lots of nested unnecessary parens get confusing
+  "no-extra-parens": ["error", "all"],
   "no-implicit-coercion": "error", // be kind, use `Boolean()` - not `!!`
   "no-magic-numbers": "error",
   "no-return-assign": "error",
@@ -27,22 +26,31 @@ const eslintRules = {
   "prefer-template": "error",
 
   // sort identifiers so it's easier to find things
-  "sort-imports": "error",
+  "sort-imports": [
+    "error",
+    {
+      ignoreCase: true,
+      memberSyntaxSortOrder: ["none", "single", "multiple", "all"]
+    }
+  ],
+  "sort-keys": ["error", "asc", { caseSensitive: false, natural: true }],
   "sort-keys": "error",
   "sort-vars": "error",
 
-  yoda: "error" // `"red" === color` => `color === "red"`
+  yoda: "error"
 };
 
 const presets = {
   extends: [
-    "prettier/@typescript-eslint",
+    "eslint:recommended",
     "plugin:vue/recommended",
-    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/vue",
     "plugin:prettier/recommended",
-    "@vue/prettier"
+    "plugin:compat/recommended"
   ],
-  plugins: ["@typescript-eslint", "prettier", "vue"]
+  plugins: ["prettier", "vue", "@typescript-eslint"]
 };
 
 module.exports = {
