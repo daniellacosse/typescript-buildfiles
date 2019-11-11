@@ -1,9 +1,10 @@
 module.exports = {
   moduleNameMapper: {
     "^library[/](.+)[.](.+)[.](.+)": "<rootDir>/library/$1/$1.$2.$3",
+    "^library[/](.+)[.](.+)": "<rootDir>/library/$1/$1.$2",
     "^vue$": "vue/dist/vue.common.js"
   },
-  moduleFileExtensions: ["ts", "vue", "json"],
+  moduleFileExtensions: ["js", "ts", "vue", "json"],
   transform: {
     "^.+\\.ts$": "ts-jest",
     ".*\\.(vue)$": "vue-jest"
@@ -11,11 +12,14 @@ module.exports = {
   notify: true,
   notifyMode: "failure-change",
   prettierPath: "<rootDir>/node_modules/prettier/",
-  roots: ["<rootDir>/library/", "<rootDir/apps/**"],
+  roots: ["<rootDir>/library/", "<rootDir>/apps/**"],
   watchPathIgnorePatterns: ["<rootDir>/node_modules/"],
   collectCoverage: true,
-  collectCoverageFrom: ["<rootDir>/library/**/*.{ts,vue}"],
-  coverageDirectory: "<rootDir>/.make/coverage",
+  collectCoverageFrom: [
+    "<rootDir>/library/**/*.ts",
+    "<rootDir>/library/**/*.vue"
+  ],
+  coverageDirectory: "<rootDir>/.buildfile-artifacts/coverage",
   coverageThreshold: {
     global: {
       /*

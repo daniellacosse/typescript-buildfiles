@@ -7,6 +7,8 @@
     "outDir": ".make",
     "removeComments": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
     "sourceMap": true,
     "strict": true,
     "target": "es6"

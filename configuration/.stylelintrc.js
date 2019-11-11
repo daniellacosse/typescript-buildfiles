@@ -28,7 +28,7 @@ const pluginRules = {
   "plugin/no-unsupported-browser-features": [
     true,
     {
-      severity: "warning"
+      ignore: ["css-appearance"]
     }
   ],
   "plugin/stylelint-no-indistinguishable-colors": true,

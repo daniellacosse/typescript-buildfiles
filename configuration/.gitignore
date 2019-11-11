@@ -1,7 +1,7 @@
 # system
-.env
+.buildfile-artifacts
 .DS_Store
-.make
+.env
 
 # yarn
 node_modules
