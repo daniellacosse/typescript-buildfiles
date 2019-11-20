@@ -14,4 +14,4 @@ addParameters({
 });
 
 // import stories
-configure(require.context("../library", true, /\.story\.jsx$/), module);
+configure(require.context("../../../library", true, /\.story\.ts$/), module);
