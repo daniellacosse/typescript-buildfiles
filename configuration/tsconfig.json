@@ -4,7 +4,11 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "outDir": ".make",
+    "outDir": ".buildfile-artifacts",
+    "paths": {
+      "components/*": ["library/components/*"],
+      "helpers/*": ["library/helpers/*"]
+    },
     "removeComments": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -14,12 +18,5 @@
     "target": "es6"
   },
   "include": ["apps/**/*", "library/**/*"],
-  "exclude": [
-    ".make",
-    ".github",
-    ".vscode",
-    ".storybook",
-    "node_modules",
-    "**/*.test.ts"
-  ]
+  "exclude": [".buildfile-artifacts", ".github", ".vscode", "node_modules"]
 }

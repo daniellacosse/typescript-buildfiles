@@ -12,7 +12,7 @@ module.exports = {
   notify: true,
   notifyMode: "failure-change",
   prettierPath: "<rootDir>/node_modules/prettier/",
-  roots: ["<rootDir>/library/", "<rootDir>/apps/**"],
+  roots: ["<rootDir>/library/", "<rootDir>/apps/"],
   watchPathIgnorePatterns: ["<rootDir>/node_modules/"],
   collectCoverage: true,
   collectCoverageFrom: [

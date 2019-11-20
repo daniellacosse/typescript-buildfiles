@@ -52,8 +52,8 @@ const presets = {
     "prettier/vue",
     "plugin:prettier/recommended",
 
-    "plugin:compat/recommended",
-    "plugin:jest/recommended"
+    "plugin:compat/recommended"
+    // "plugin:jest/recommended"
   ],
   plugins: ["prettier", "vue", "@typescript-eslint", "jest"]
 };
@@ -136,13 +136,13 @@ const presetRules = {
   // "vue/no-empty-pattern": "error",
 
   "vue/no-boolean-default": "error",
-  "vue/match-component-file-name": [
-    "error",
-    {
-      extensions: ["vue"],
-      shouldMatchCase: true
-    }
-  ],
+  // "vue/match-component-file-name": [
+  //   "error",
+  //   {
+  //     extensions: ["vue"],
+  //     shouldMatchCase: true
+  //   }
+  // ],
   "vue/object-curly-spacing": ["error", "always"],
   "vue/require-direct-export": "error",
   "vue/space-infix-ops": "error",

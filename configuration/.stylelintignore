@@ -1,4 +1,4 @@
-./.buildfiles
+./.buildfile-artifacts
 ./.eslintrc.js
 ./.jestrc.js
 ./.postcssrc.js
@@ -6,6 +6,5 @@
 ./.github
 ./.storybook
 ./.vscode
-coverage
-node_modules
-webpack.config.js
+./node_modules
+./webpack.config.js
