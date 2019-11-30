@@ -14,4 +14,7 @@ addParameters({
 });
 
 // import stories
-configure(require.context("../../../library", true, /\.story\.ts$/), module);
+configure(
+  require.context(`../../../${process.env.ENTRY}`, true, /\.story\.ts$/),
+  module
+);

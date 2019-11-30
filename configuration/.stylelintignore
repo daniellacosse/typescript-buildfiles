@@ -1,4 +1,4 @@
-./.buildfile-artifacts
+./.artifacts
 ./.eslintrc.js
 ./.jestrc.js
 ./.postcssrc.js

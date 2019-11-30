@@ -1,7 +1,7 @@
 .PHONY: reset reset!
 
 reset:
-	@echo "Are you sure? - please run 'reset!' to confirm."
+	@echo "Are you sure? - please run 'task/reset!' to confirm."
 
 reset!:
-	@rm -rf $(PROXY_FOLDER)
+	@rm -rf $(ARTIFACT_FOLDER)

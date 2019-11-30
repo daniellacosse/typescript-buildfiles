@@ -3,26 +3,36 @@
 # TODO: use an archive file
 # https://www.gnu.org/software/make/manual/make.html#Archives
 
-setup:
+ifeq ($(NODE_ENV),development)
+
+PROJECT_DEPENDENCIES=\
+	$(ARTIFACT_FOLDER)/Brewfile \
+	$(ARTIFACT_FOLDER)/yarn.lock \
+	$(ARTIFACT_FOLDER)/vscode-extensions.json
+
+endif
+
+ifeq ($(NODE_ENV),production)
+
+PROJECT_DEPENDENCIES=$(ARTIFACT_FOLDER)/yarn.lock
+
+endif
+
+setup: # brew
 	cd $(BUILDFILE_FOLDER) && git pull ;\
-	cd .. && mkdir -p $(PROXY_FOLDER) ;\
-	make $(PROJECT_DEPENDENCY_PROXY_TARGETS)
+	cd .. && mkdir -p $(ARTIFACT_FOLDER) ;\
+	make $(PROJECT_DEPENDENCIES)
 
-PROJECT_DEPENDENCY_PROXY_TARGETS= \
-	$(call IF_LOCAL,$(PROXY_FOLDER)/Brewfile) \
-	$(PROXY_FOLDER)/yarn.lock \
-	$(call IF_LOCAL,$(PROXY_FOLDER)/vscode-extensions.json)
-
-$(PROXY_FOLDER)/Brewfile: Brewfile
+$(ARTIFACT_FOLDER)/Brewfile: Brewfile
 	@brew bundle --force |\
-		tee $(PROXY_FOLDER)/Brewfile
+		tee $(ARTIFACT_FOLDER)/Brewfile
 
-$(PROXY_FOLDER)/yarn.lock: yarn.lock
+$(ARTIFACT_FOLDER)/yarn.lock: yarn.lock
 	@yarn install |\
-		tee $(PROXY_FOLDER)/yarn.lock
+		tee $(ARTIFACT_FOLDER)/yarn.lock
 
-$(PROXY_FOLDER)/vscode-extensions.json: .vscode/extensions.json
+$(ARTIFACT_FOLDER)/vscode-extensions.json: .vscode/extensions.json
 	@cat .vscode/extensions.json |\
 		jq -r '.recommendations | .[]' |\
 		xargs -L 1 code --install-extension |\
-			tee $(PROXY_FOLDER)/vscode-extensions.json
+			tee $(ARTIFACT_FOLDER)/vscode-extensions.json

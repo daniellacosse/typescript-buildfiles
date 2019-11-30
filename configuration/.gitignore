@@ -1,5 +1,5 @@
 # system
-.buildfile-artifacts
+.artifacts
 .DS_Store
 .env
 

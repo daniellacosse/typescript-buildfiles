@@ -19,7 +19,7 @@ module.exports = {
     "<rootDir>/library/**/*.ts",
     "<rootDir>/library/**/*.vue"
   ],
-  coverageDirectory: "<rootDir>/.buildfile-artifacts/coverage",
+  coverageDirectory: "<rootDir>/.artifacts/coverage",
   coverageThreshold: {
     global: {
       /*

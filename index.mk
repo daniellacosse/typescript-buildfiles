@@ -1,27 +1,17 @@
+# TODO: determine default recipe from .env
 -include .env
-
-SHELL:=/bin/bash
-
-IF_ENV=$(if $(filter $(NODE_ENV),$(1)),$(2))
-IF_LOCAL=$(call IF_ENV,local,$(1))
-IF_PRODUCTION=$(call IF_ENV,production,$(1))
-
-BUILDFILE_FOLDER=.buildfiles
-PROXY_FOLDER=.buildfile-artifacts
 
 .DELETE_ON_ERROR:
 
--include .buildfiles/tasks/*.mk .buildfiles/targets/*.mk
+SHELL:=/bin/bash
 
-.PHONY: apps/% apps/%/server library
+APPLICATION_FOLDER=apps
+ARTIFACT_FOLDER=.artifacts
+BUILDFILE_FOLDER=.buildfiles
+HISTORY_FOLDER=.archive
+LIBRARY_FOLDER=library
 
-apps/%: $(PROXY_FOLDER)/apps/%
+# TODO: set recipe to `vue` if not set
 
-$(PROXY_FOLDER)/apps/%: setup
- $(if $(TARGET),make $(TARGET),make %)
-
-apps/%/server: setup
-	$(if $(TARGET),make $(TARGET)/server,make %/server)
-
-library: setup
-	# build library
+# TODO: `help` should be first
+-include .buildfiles/tasks/*.mk .buildfiles/task-recipes/*.mk

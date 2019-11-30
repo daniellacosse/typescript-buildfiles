@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "outDir": ".buildfile-artifacts",
+    "outDir": ".artifacts",
     "paths": {
       "components/*": ["library/components/*"],
       "helpers/*": ["library/helpers/*"]
@@ -18,5 +18,5 @@
     "target": "es6"
   },
   "include": ["apps/**/*", "library/**/*"],
-  "exclude": [".buildfile-artifacts", ".github", ".vscode", "node_modules"]
+  "exclude": [".artifacts", ".github", ".vscode", "node_modules"]
 }
