@@ -1,20 +1,20 @@
 ifeq ($(RECIPE),storybook)
 
-ENTRY?=library
+ENTRY?=library/index.ts
 
-STORYBOOK_FOLDER=$(ENTRY)
 STORYBOOK_COMMON_FLAGS=--quiet
 
 # -- artifact --
 ifeq ($(TASK),artifact)
 
-ENTRY_FILES:=$(shell find $(ENTRY) -type f -name '*')
+ENTRY_DIRECTORY:=$(shell dirname $(ENTRY))
+ENTRY_FILES:=$(shell find $(ENTRY_DIRECTORY) -type f -name '*')
 
-STORYBOOK_ARTIFACT_FOLDER=$(ARTIFACT_FOLDER)/$(STORYBOOK_FOLDER)
+STORYBOOK_ARTIFACT_FOLDER=$(ARTIFACT_FOLDER)/$(ENTRY_DIRECTORY)
 STORYBOOK_ARTIFACT_INDEX=$(STORYBOOK_ARTIFACT_FOLDER)/index.html
 
 default:
-	make $(STORYBOOK_ARTIFACT_INDEX) \
+	@make $(STORYBOOK_ARTIFACT_INDEX) \
 		ENTRY=$(ENTRY) \
 		TASK=artifact \
 		RECIPE=storybook

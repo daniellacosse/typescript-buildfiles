@@ -10,10 +10,10 @@ BUILDFILE_FOLDER=.buildfiles
 HISTORY_FOLDER=.archive
 LIBRARY_FOLDER=library
 
-RECIPE?=vue-ts
+RECIPE?=vue-app
 TASK?=artifact
 
 .PHONY: default
 
--include .buildfiles/task-recipes/*.mk
+-include .buildfiles/recipes/*.mk
 -include .buildfiles/tasks/*.mk

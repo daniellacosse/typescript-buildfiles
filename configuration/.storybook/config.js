@@ -14,7 +14,5 @@ addParameters({
 });
 
 // import stories
-configure(
-  require.context(`../../../${process.env.ENTRY}`, true, /\.story\.ts$/),
-  module
-);
+// TODO: make storybook dynamic
+configure(require.context(`../../../library`, true, /\.story\.ts$/), module);

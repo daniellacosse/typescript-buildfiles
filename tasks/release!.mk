@@ -1,4 +1,4 @@
-# TODO
+# TODO: release
 .PHONY: release release!
 
 release:

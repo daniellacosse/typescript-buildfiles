@@ -1,2 +1,2 @@
-help: # TODO
+help: # TODO: help
 	@echo "TODO"
