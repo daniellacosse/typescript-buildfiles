@@ -1,1 +1,2 @@
-help: # should be the default!
+help: # TODO
+	@echo "TODO"

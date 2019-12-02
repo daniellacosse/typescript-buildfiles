@@ -18,7 +18,7 @@ PROJECT_DEPENDENCIES=$(ARTIFACT_FOLDER)/yarn.lock
 
 endif
 
-setup: # brew
+setup: # TODO: brew
 	cd $(BUILDFILE_FOLDER) && git pull ;\
 	cd .. && mkdir -p $(ARTIFACT_FOLDER) ;\
 	make $(PROJECT_DEPENDENCIES)

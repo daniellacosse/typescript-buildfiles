@@ -1,4 +1,3 @@
-# TODO: determine default recipe from .env
 -include .env
 
 .DELETE_ON_ERROR:
@@ -11,7 +10,10 @@ BUILDFILE_FOLDER=.buildfiles
 HISTORY_FOLDER=.archive
 LIBRARY_FOLDER=library
 
-# TODO: set recipe to `vue` if not set
+RECIPE?=vue-ts
+TASK?=artifact
 
-# TODO: `help` should be first
--include .buildfiles/tasks/*.mk .buildfiles/task-recipes/*.mk
+.PHONY: default
+
+-include .buildfiles/task-recipes/*.mk
+-include .buildfiles/tasks/*.mk
