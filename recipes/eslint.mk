@@ -1,13 +1,12 @@
 ifeq ($(RECIPE),eslint)
 
-.PHONY: $(RECIPE) check
+ifeq ($(TASK),check)
 
-FILES_CHANGED:=$(shell ../helpers/files-changed.sh) 
+FILES_CHANGED:=$(shell bash .buildfiles/helpers/files-changed.sh "\.ts|vue$$") 
 
-$(RECIPE):
-	@yarn eslint $(ENTRY)
-
-check:
+default:
 	@yarn eslint $(FILES_CHANGED)
+
+endif
 
 endif

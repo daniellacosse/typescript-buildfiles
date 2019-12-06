@@ -1,18 +1,21 @@
 ifeq ($(RECIPE),jest)
 
-.PHONY: $(RECIPE) check server
+ifeq ($(TASK),check)
 
-FILES_CHANGED:=$(shell ../helpers/files-changed.sh) 
+FILES_CHANGED:=$(shell bash .buildfiles/helpers/files-changed.sh "\.ts|vue$$")
+UNCOVERED_EXTENSIONS=%.story.ts %.test.ts %.d.ts %/index.ts
+FILES_COVERED=$(filter-out $(UNCOVERED_EXTENSIONS),$(FILES_CHANGED))
+COVERAGE_FLAGS:=$(addprefix --collectCoverageFrom=,$(FILES_COVERED))
 
-$(RECIPE):
-	@yarn jest $(ENTRY) --output-dir $(COVERAGE_FOLDER)
-
-check:
-	@yarn jest --ci \
+default:
+	@yarn jest \
+		$(COVERAGE_FLAGS) \
+		--bail \
+		--config .jestrc.js \
+		--ci \
 		--findRelatedTests $(FILES_CHANGED) \
-		--collectCoverageFrom $(FILES_CHANGED)
-		--passWithNoTests --bail
+		--passWithNoTests
 
-server: # TODO
+endif
 
 endif
