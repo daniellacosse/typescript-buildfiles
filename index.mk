@@ -11,6 +11,7 @@ HISTORY_FOLDER=.archive
 LIBRARY_FOLDER=library
 
 RECIPE?=vue-app
+NODE_ENV?=development
 TASK?=artifact
 
 .PHONY: default
