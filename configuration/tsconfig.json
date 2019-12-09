@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "outDir": ".artifacts",
+    "paths": {
+      "components/*": ["library/components/*"],
+      "helpers/*": ["library/helpers/*"]
+    },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6"
+  },
+  "include": ["apps/**/*", "library/**/*"],
+  "exclude": [
+    ".artifacts",
+    ".buildfiles",
+    ".github",
+    ".storybook",
+    ".vscode",
+    "node_modules"
+  ]
+}

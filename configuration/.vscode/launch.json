@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tests",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": ["-i"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "outFiles": ["${workspaceFolder}/.make/dist/**/*"]
+    }
+  ],
+  "version": "0.2.0"
+}

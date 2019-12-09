@@ -1,0 +1,6 @@
+.buildfiles
+.make
+.github
+.vscode
+coverage
+node_modules

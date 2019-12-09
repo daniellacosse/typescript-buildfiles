@@ -1,0 +1,14 @@
+name: test
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: yarn test

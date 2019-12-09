@@ -1,0 +1,62 @@
+{
+  "auto-close-tag.SublimeText3Mode": true,
+  "coverage-gutters.coverageReportFileName": "./.artifacts/coverage/**/index.html",
+  "coverage-gutters.highlightdark": "rgba(166, 220, 142, 0.10)",
+  "coverage-gutters.highlightlight": "rgba(166, 220, 142, 0.10)",
+  "coverage-gutters.noHighlightDark": "rgba(121, 31, 10, 0.33)",
+  "coverage-gutters.noHighlightLight": "rgba(220, 143, 143, 0.33)",
+  "coverage-gutters.partialHighlightDark": "transparent",
+  "coverage-gutters.partialHighlightLight": "transparent",
+  "coverage-gutters.showGutterCoverage": false,
+  "coverage-gutters.showLineCoverage": true,
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabCompletion": "onlySnippets",
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 95,
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "extensions": [".js", ".ts", ".vue"]
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onSave",
+  "eslint.validate": [
+    {
+      "autoFix": true,
+      "language": "typescript"
+    },
+    {
+      "autoFix": true,
+      "language": "vue"
+    }
+  ],
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/yarn-error.log": true
+  },
+  "files.insertFinalNewline": true,
+  "html.validate.scripts": false,
+  "html.validate.styles": false,
+  "javascript.validate.enable": false,
+  "jest.enableSnapshotUpdateMessages": true,
+  "jest.pathToConfig": ".jestrc.js",
+  "jest.restartJestOnSnapshotUpdate": true,
+  "search.exclude": {
+    "**/.DS_Store": true,
+    "**/.artifacts": true,
+    "**/node_modules": true,
+    "**/yarn-error.log": true,
+    "**/yarn.lock": true
+  },
+  "stylelint.autoFixOnSave": true,
+  "versionlens.npm.dependencyProperties": ["dependencies"],
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "vetur.format.enable": true
+}
