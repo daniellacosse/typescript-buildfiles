@@ -41,7 +41,16 @@ const pluginRules = {
   "sh-waqar/declaration-use-variable": [
     [
       "/(background|border-radius|color|font-family|margin|padding|z-index)/",
-      { ignoreValues: ["transparent", "sans-serif", "auto", "none", 0] }
+      {
+        ignoreValues: [
+          "auto",
+          "initial",
+          "none",
+          "sans-serif",
+          "transparent",
+          0
+        ]
+      }
     ]
   ]
 };

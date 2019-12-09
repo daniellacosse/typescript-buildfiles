@@ -5,18 +5,18 @@ const eslintRules = {
   "eol-last": "error",
   eqeqeq: "error",
 
-  "no-await-in-loop": "error", // use Promise.all instead so async calls are fired at once
-  "no-eval": "error", // this is an attack vector
-  "no-implicit-coercion": "error", // be kind, use `Boolean()` - not `!!`
+  "no-await-in-loop": "error",
+  "no-eval": "error",
+  "no-implicit-coercion": "error",
   "no-return-assign": "error",
-  "no-shadow": "error", // inner-scope vars should have names separate from outer-scope vars to minimize confusion
-  "no-template-curly-in-string": "error", // backticks are required
+  "no-shadow": "error",
+  "no-template-curly-in-string": "error",
   "no-trailing-spaces": "error",
-  "no-unneeded-ternary": "error", // forbids `thing ? true : false;`
+  "no-unneeded-ternary": "error",
 
   // enforce es6 features
-  "no-var": "error", // use `let` or `const`
-  "prefer-const": "error", // use `const` when the variable doesn't change
+  "no-var": "error",
+  "prefer-const": "error",
   "prefer-destructuring": "error",
   "prefer-object-spread": "error",
   "prefer-rest-params": "error",
@@ -31,7 +31,8 @@ const eslintRules = {
       memberSyntaxSortOrder: ["none", "single", "multiple", "all"]
     }
   ],
-  "sort-keys": ["error", "asc", { caseSensitive: false, natural: true }],
+  // TODO: conflicts with other ts/vue rules
+  // "sort-keys": ["error", "asc", { caseSensitive: false, natural: true }],
   "sort-vars": "error",
 
   yoda: "error"
@@ -55,7 +56,7 @@ const presets = {
     "plugin:compat/recommended"
     // "plugin:jest/recommended"
   ],
-  plugins: ["prettier", "vue", "@typescript-eslint", "jest"]
+  plugins: ["prettier", "vue", "@typescript-eslint" /*"jest"*/]
 };
 
 const presetRules = {
@@ -120,8 +121,6 @@ const presetRules = {
 
   "@typescript-eslint/restrict-plus-operands": "error",
 
-  // TODO: html-indent & script-indent?
-  // TODO: do some of these rules need to be applied to the base `eslint` as well? is this redundant?
   "vue/array-bracket-spacing": "error",
   "vue/arrow-spacing": "error",
   "vue/block-spacing": "error",
@@ -129,20 +128,16 @@ const presetRules = {
   "vue/camelcase": "error",
   "vue/comma-dangle": ["error", "never"],
   "vue/component-name-in-template-casing": ["error", "kebab-case"],
-  // "vue/dot-location": ["error", "property"],
   "vue/eqeqeq": "error",
   "vue/key-spacing": "error",
-  // "vue/keyword-spacing": "error",
-  // "vue/no-empty-pattern": "error",
 
   "vue/no-boolean-default": "error",
-  // "vue/match-component-file-name": [
-  //   "error",
-  //   {
-  //     extensions: ["vue"],
-  //     shouldMatchCase: true
-  //   }
-  // ],
+  "vue/match-component-file-name": [
+    "error",
+    {
+      extensions: ["vue"]
+    }
+  ],
   "vue/object-curly-spacing": ["error", "always"],
   "vue/require-direct-export": "error",
   "vue/space-infix-ops": "error",

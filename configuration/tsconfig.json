@@ -18,5 +18,12 @@
     "target": "es6"
   },
   "include": ["apps/**/*", "library/**/*"],
-  "exclude": [".artifacts", ".github", ".vscode", "node_modules"]
+  "exclude": [
+    ".artifacts",
+    ".buildfiles",
+    ".github",
+    ".storybook",
+    ".vscode",
+    "node_modules"
+  ]
 }
