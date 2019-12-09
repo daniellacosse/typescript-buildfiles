@@ -18,6 +18,12 @@ module.exports = ({ config }) => {
     ]
   });
 
+  config.module.rules.push({
+    test: /\.vue$/,
+    loader: "vue-docgen-loader",
+    enforce: "post"
+  });
+
   config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
   return merge(config, require("../vue.config").configureWebpack);

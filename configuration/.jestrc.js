@@ -1,22 +1,7 @@
 module.exports = {
-  moduleNameMapper: {
-    "^library[/](.+)[.](.+)[.](.+)": "<rootDir>/library/$1/$1.$2.$3",
-    "^library[/](.+)[.](.+)": "<rootDir>/library/$1/$1.$2",
-    "^vue$": "vue/dist/vue.common.js"
-  },
-  moduleFileExtensions: ["js", "ts", "vue", "json"],
-  transform: {
-    "^.+\\.ts$": "ts-jest",
-    ".*\\.(vue)$": "vue-jest"
-  },
-  notify: true,
-  notifyMode: "failure-change",
-  prettierPath: "<rootDir>/node_modules/prettier/",
-  roots: ["<rootDir>/library/", "<rootDir>/apps/"],
-  watchPathIgnorePatterns: ["<rootDir>/node_modules/"],
   collectCoverage: true,
   collectCoverageFrom: [
-    "<rootDir>/library/**/*.ts",
+    "<rootDir>/library/**/*.helper.ts",
     "<rootDir>/library/**/*.vue"
   ],
   coverageDirectory: "<rootDir>/.artifacts/coverage",
@@ -42,5 +27,21 @@ module.exports = {
        */
       branches: 87.5
     }
-  }
+  },
+  moduleFileExtensions: ["js", "ts", "tsx", "vue", "json"],
+  moduleNameMapper: {
+    "^components[/](.+)": "<rootDir>/library/components/$1",
+    "^helpers[/](.+)": "<rootDir>/library/helpers/$1",
+    "^vue$": "vue/dist/vue.common.js"
+  },
+  notify: true,
+  notifyMode: "failure-change",
+  prettierPath: "<rootDir>/node_modules/prettier/",
+  roots: ["<rootDir>/library/", "<rootDir>/apps/"],
+  transform: {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.vue$": "vue-jest",
+    "^.+\\.ts$": "ts-jest"
+  },
+  watchPathIgnorePatterns: ["<rootDir>/node_modules/"]
 };

@@ -1,6 +1,6 @@
 ifeq ($(RECIPE),storybook)
 
-ENTRY?=library/index.ts
+override ENTRY=library/index.ts
 
 STORYBOOK_COMMON_FLAGS=--quiet
 

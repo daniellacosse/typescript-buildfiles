@@ -1,18 +1,9 @@
-import { addDecorator, addParameters, configure } from "@storybook/vue";
-import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
+import { addDecorator, configure } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
+import requireContext from "require-context.macro";
 
 // controls for interacting with components
 addDecorator(withKnobs);
 
-// document generation
-addParameters({
-  docs: {
-    container: DocsContainer,
-    page: DocsPage
-  }
-});
-
 // import stories
-// TODO: make storybook dynamic
-configure(require.context(`../../../library`, true, /\.story\.ts$/), module);
+configure(requireContext("../../../library", true, /\.story\.ts$/), module);
