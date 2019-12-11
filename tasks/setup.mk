@@ -30,7 +30,7 @@ $(ARTIFACT_FOLDER)/Brewfile: Brewfile
 		tee $(ARTIFACT_FOLDER)/Brewfile
 
 $(ARTIFACT_FOLDER)/yarn.lock: yarn.lock
-	@yarn install |\
+	@yarn install --production=false |\
 		tee $(ARTIFACT_FOLDER)/yarn.lock
 
 $(ARTIFACT_FOLDER)/vscode-extensions.json: .vscode/extensions.json
