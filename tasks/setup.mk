@@ -22,8 +22,7 @@ endif
 .PHONY: setup
 
 setup: $(HOMEBREW)
-	@cd $(BUILDFILE_FOLDER) && git pull ;\
-	 cd .. && mkdir -p $(ARTIFACT_FOLDER) ;\
+	@mkdir -p $(ARTIFACT_FOLDER) ;\
 	 make $(PROJECT_DEPENDENCIES)
 
 $(ARTIFACT_FOLDER)/Brewfile: Brewfile
