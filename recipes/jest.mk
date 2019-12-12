@@ -7,6 +7,13 @@ UNCOVERED_EXTENSIONS=%.story.ts %.test.ts %.d.ts %/index.ts
 FILES_COVERED=$(filter-out $(UNCOVERED_EXTENSIONS),$(FILES_CHANGED))
 COVERAGE_FLAGS:=$(addprefix --collectCoverageFrom=,$(FILES_COVERED))
 
+ifeq ($(strip $(FILES_CHANGED)),)
+
+default:
+	@exit 0
+
+else
+
 default:
 	@yarn jest \
 		$(COVERAGE_FLAGS) \
@@ -15,6 +22,8 @@ default:
 		--ci \
 		--findRelatedTests $(FILES_CHANGED) \
 		--passWithNoTests
+
+endif
 
 endif
 
