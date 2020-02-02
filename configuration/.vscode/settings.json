@@ -18,22 +18,12 @@
   "editor.tabCompletion": "onlySnippets",
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 95,
-  "eslint.autoFixOnSave": true,
   "eslint.options": {
     "extensions": [".js", ".ts", ".vue"]
   },
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
-  "eslint.validate": [
-    {
-      "autoFix": true,
-      "language": "typescript"
-    },
-    {
-      "autoFix": true,
-      "language": "vue"
-    }
-  ],
+  "eslint.validate": ["typescript", "vue"],
   "files.exclude": {
     "**/.DS_Store": true,
     "**/node_modules": true,

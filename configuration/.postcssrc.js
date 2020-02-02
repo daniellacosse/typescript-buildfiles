@@ -1,6 +1,6 @@
 const plugins = [
-  require("autoprefixer"),
   require("stylelint"),
+  require("autoprefixer"),
   require("postcss-import"),
   require("postcss-autoreset"),
   require("postcss-preset-env")
