@@ -72,7 +72,7 @@ const presetRules = {
     "error",
     { accessibility: "no-public" }
   ],
-  "@typescript-eslint/generic-type-naming": ["error", "^[TK][A-Z][a-zA-Z]+$"],
+  "@typescript-eslint/generic-type-naming": ["error", "^[TK][A-Z]*[a-zA-Z]*$"],
 
   indent: "off",
   "@typescript-eslint/indent": ["error", 2],
