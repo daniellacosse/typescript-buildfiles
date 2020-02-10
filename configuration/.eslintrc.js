@@ -80,16 +80,17 @@ const presetRules = {
   "@typescript-eslint/member-naming": ["error", { private: "^__" }],
   "@typescript-eslint/member-ordering": "error",
 
-  "no-extra-parens": "off",
-  "@typescript-eslint/no-extra-parens": "error",
-
   "@typescript-eslint/no-extraneous-class": "error",
   "@typescript-eslint/no-floating-promises": ["error", { ignoreVoid: true }],
 
   "no-magic-numbers": "off",
   "@typescript-eslint/no-magic-numbers": [
     "error",
-    { ignoreReadonlyClassProperties: true, ignoreEnums: true }
+    {
+      ignoreReadonlyClassProperties: true,
+      ignoreEnums: true,
+      ignore: [-1, 0, 1]
+    }
   ],
 
   "@typescript-eslint/no-parameter-properties": [
