@@ -53,10 +53,10 @@ const presets = {
     "prettier/vue",
     "plugin:prettier/recommended",
 
-    "plugin:compat/recommended"
-    // "plugin:jest/recommended"
+    "plugin:compat/recommended",
+    "plugin:jest/recommended"
   ],
-  plugins: ["prettier", "vue", "@typescript-eslint" /*"jest"*/]
+  plugins: ["prettier", "vue", "@typescript-eslint", "jest"]
 };
 
 const presetRules = {
@@ -120,6 +120,7 @@ const presetRules = {
   semi: "off",
   "@typescript-eslint/semi": "error",
 
+  "@typescript-eslint/require-await": "warn",
   "@typescript-eslint/restrict-plus-operands": "error",
 
   "vue/array-bracket-spacing": "error",
@@ -143,19 +144,17 @@ const presetRules = {
   "vue/require-direct-export": "error",
   "vue/space-infix-ops": "error",
   "vue/space-unary-ops": ["error", { words: true, nonwords: false }],
-  "vue/v-on-function-call": ["error", "always"]
+  "vue/v-on-function-call": ["error", "always"],
 
-  // "jest/lowercase-name": "warn",
-  // "jest/no-empty-title": "error",
-  // "jest/no-export": "error",
-  // "jest/no-large-snapshots": [
-  //   "warn",
-  //   {
-  //     maxSize: 100
-  //   }
-  // ],
-  // "jest/no-test-callback": "error",
-  // "jest/prefer-inline-snapshots": "error",
+  "jest/no-export": "error",
+  "jest/no-large-snapshots": [
+    "warn",
+    {
+      maxSize: 100
+    }
+  ],
+  "jest/no-test-callback": "error",
+  "jest/prefer-inline-snapshots": "error"
 };
 
 module.exports = {
