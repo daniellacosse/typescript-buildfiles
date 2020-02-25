@@ -119,8 +119,6 @@ const presetRules = {
 
   semi: "off",
   "@typescript-eslint/semi": "error",
-
-  "@typescript-eslint/require-await": "warn",
   "@typescript-eslint/restrict-plus-operands": "error",
 
   "vue/array-bracket-spacing": "error",
@@ -141,7 +139,6 @@ const presetRules = {
     }
   ],
   "vue/object-curly-spacing": ["error", "always"],
-  "vue/require-direct-export": "error",
   "vue/space-infix-ops": "error",
   "vue/space-unary-ops": ["error", { words: true, nonwords: false }],
   "vue/v-on-function-call": ["error", "always"],
