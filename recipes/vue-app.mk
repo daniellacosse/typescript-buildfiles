@@ -1,5 +1,7 @@
 ifeq ($(RECIPE),vue-app)
 
+ifdef ENTRY
+
 ENTRY_DIRECTORY:=$(shell dirname $(ENTRY))
 ENTRY_FILES:=$(shell find $(ENTRY_DIRECTORY) -not \( -path $(ENTRY_DIRECTORY)/node_modules -prune \) -type f -name '*')
 
@@ -8,8 +10,6 @@ VUE_APP_ARTIFACT_INDEX=$(ARTIFACT_FOLDER)/$(ENTRY_DIRECTORY)/index.html
 
 # -- artifact --
 ifeq ($(TASK),artifact)
-
-ifdef ENTRY
 
 default:
 	@make $(VUE_APP_ARTIFACT_INDEX) \
@@ -27,8 +27,6 @@ $(VUE_APP_ARTIFACT_INDEX): $(ENTRY_FILES)
 
 endif
 
-endif
-
 # -- check --
 ifeq ($(TASK),check)
 
@@ -42,6 +40,8 @@ ifeq ($(TASK),server)
 
 default:
 	@yarn vue-cli-service serve --open $(ENTRY)
+
+endif
 
 endif
 
