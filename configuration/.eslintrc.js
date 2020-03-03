@@ -109,6 +109,10 @@ const presetRules = {
   "@typescript-eslint/prefer-function-type": "error",
   "@typescript-eslint/prefer-readonly": "error",
   "@typescript-eslint/promise-function-async": "error",
+
+  // need awaitless async for concurrent jest tests
+  "@typescript-eslint/require-await": "off",
+
   "@typescript-eslint/strict-boolean-expressions": [
     "error",
     { allowNullable: true, ignoreRhs: true }
