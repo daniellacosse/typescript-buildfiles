@@ -22,20 +22,22 @@ endif
 .PHONY: setup
 
 setup: $(HOMEBREW)
-	@mkdir -p $(ARTIFACT_FOLDER) ;\
-	 make $(PROJECT_DEPENDENCIES)
+	@make $(PROJECT_DEPENDENCIES)
 
-$(ARTIFACT_FOLDER)/Brewfile: Brewfile
+$(ARTIFACT_FOLDER):
+	@mkdir -p $(ARTIFACT_FOLDER) 
+
+$(ARTIFACT_FOLDER)/Brewfile: $(ARTIFACT_FOLDER) Brewfile
 	@touch $(ARTIFACT_FOLDER)/Brewfile && \
 		brew bundle --force |\
 			tee $(ARTIFACT_FOLDER)/Brewfile
 
-$(ARTIFACT_FOLDER)/yarn.lock: yarn.lock
+$(ARTIFACT_FOLDER)/yarn.lock: $(ARTIFACT_FOLDER) yarn.lock
 	@touch $(ARTIFACT_FOLDER)/yarn.lock && \
 		yarn install |\
 			tee $(ARTIFACT_FOLDER)/yarn.lock
 
-$(ARTIFACT_FOLDER)/vscode-extensions.json: .vscode/extensions.json
+$(ARTIFACT_FOLDER)/vscode-extensions.json: $(ARTIFACT_FOLDER) .vscode/extensions.json
 	@touch $(ARTIFACT_FOLDER)/vscode-extensions.json && \
 		cat .vscode/extensions.json |\
 			jq -r '.recommendations | .[]' |\
