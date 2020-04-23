@@ -26,18 +26,21 @@ setup: $(HOMEBREW)
 	 make $(PROJECT_DEPENDENCIES)
 
 $(ARTIFACT_FOLDER)/Brewfile: Brewfile
-	@brew bundle --force |\
-		tee $(ARTIFACT_FOLDER)/Brewfile
+	@touch $(ARTIFACT_FOLDER)/Brewfile && \
+		brew bundle --force |\
+			tee $(ARTIFACT_FOLDER)/Brewfile
 
 $(ARTIFACT_FOLDER)/yarn.lock: yarn.lock
-	@yarn install --production=false |\
-		tee $(ARTIFACT_FOLDER)/yarn.lock
+	@touch $(ARTIFACT_FOLDER)/yarn.lock && \
+		yarn install |\
+			tee $(ARTIFACT_FOLDER)/yarn.lock
 
 $(ARTIFACT_FOLDER)/vscode-extensions.json: .vscode/extensions.json
-	@cat .vscode/extensions.json |\
-		jq -r '.recommendations | .[]' |\
-		xargs -L 1 code --install-extension |\
-			tee $(ARTIFACT_FOLDER)/vscode-extensions.json
+	@touch $(ARTIFACT_FOLDER)/vscode-extensions.json && \
+		cat .vscode/extensions.json |\
+			jq -r '.recommendations | .[]' |\
+			xargs -L 1 code --install-extension |\
+				tee $(ARTIFACT_FOLDER)/vscode-extensions.json
 
 $(HOMEBREW):
 	$(RUBY) -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
