@@ -1,4 +1,4 @@
-ifeq ($(RECIPE),parcel)
+ifeq ($(RECIPE),parcel-node)
 
 ifeq ($(TASK),artifact)
 
@@ -20,33 +20,7 @@ $(PARCEL_ARTIFACT_INDEX): $(ENTRY_FILES)
 	@rm -rf $(PARCEL_ARTIFACT_FOLDER) ;\
 	 mkdir -p $(PARCEL_ARTIFACT_FOLDER) ;\
 	 yarn parcel build $(ENTRY) \
-		--out-dir $(PARCEL_ARTIFACT_FOLDER)/dist \
-		--cache-dir $(PARCEL_ARTIFACT_FOLDER)/.cache
-
-endif
-
-endif
-
-ifeq ($(TASK),server)
-
-ifdef ENTRY
-
-ENTRY_DIRECTORY:=$(shell dirname $(ENTRY))
-
-PARCEL_ARTIFACT_FOLDER=$(ARTIFACT_FOLDER)/$(ENTRY_DIRECTORY)
-PARCEL_ARTIFACT_INDEX=$(ARTIFACT_FOLDER)/$(ENTRY)
-
-default:
-	@make $(PARCEL_ARTIFACT_INDEX) \
-		ENTRY=$(ENTRY) \
-		TASK=server \
-		RECIPE=parcel
-
-$(PARCEL_ARTIFACT_INDEX):
-	@rm -rf $(PARCEL_ARTIFACT_FOLDER) ;\
-	 mkdir -p $(PARCEL_ARTIFACT_FOLDER) ;\
-	 yarn parcel $(ENTRY) \
-		--out-dir $(PARCEL_ARTIFACT_FOLDER)/dist \
+		--out-dir $(PARCEL_ARTIFACT_FOLDER)/dist
 		--cache-dir $(PARCEL_ARTIFACT_FOLDER)/.cache
 
 endif
