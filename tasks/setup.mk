@@ -45,4 +45,4 @@ $(ARTIFACT_FOLDER)/vscode-extensions.json: $(ARTIFACT_FOLDER) .vscode/extensions
 				tee $(ARTIFACT_FOLDER)/vscode-extensions.json
 
 $(HOMEBREW):
-	$(RUBY) -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	$(RUBY) -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
