@@ -1,5 +1,5 @@
 HOMEBREW:=/usr/local/bin/brew
-RUBY:=/usr/bin/ruby
+RUBY:=$(shell which ruby)
 
 # TODO: archive files - for checks, also
 # https://www.gnu.org/software/make/manual/make.html#Archives
