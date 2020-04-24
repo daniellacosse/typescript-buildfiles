@@ -1,4 +1,4 @@
-HOMEBREW:=/usr/local/bin/brew
+HOMEBREW:=$(shell which brew)
 RUBY:=$(shell which ruby)
 
 # TODO: archive files - for checks, also
@@ -21,15 +21,15 @@ endif
 
 .PHONY: setup
 
-setup: $(HOMEBREW)
+setup:
 	@make $(PROJECT_DEPENDENCIES)
 
 $(ARTIFACT_FOLDER):
 	@mkdir -p $(ARTIFACT_FOLDER) 
 
-$(ARTIFACT_FOLDER)/Brewfile: $(ARTIFACT_FOLDER) Brewfile
+$(ARTIFACT_FOLDER)/Brewfile: $(ARTIFACT_FOLDER) $(HOMEBREW) Brewfile
 	@touch $(ARTIFACT_FOLDER)/Brewfile && \
-		brew bundle --force |\
+		$(HOMEBREW) bundle --force |\
 			tee $(ARTIFACT_FOLDER)/Brewfile
 
 $(ARTIFACT_FOLDER)/yarn.lock: $(ARTIFACT_FOLDER) yarn.lock
