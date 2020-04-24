@@ -1,5 +1,5 @@
-HOMEBREW:=$(shell which brew)
-RUBY:=$(shell which ruby)
+HOMEBREW=$(shell which brew)
+RUBY=$(shell which ruby)
 
 # TODO: archive files - for checks, also
 # https://www.gnu.org/software/make/manual/make.html#Archives
